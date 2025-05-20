@@ -1,0 +1,10 @@
+{
+  "UniqueModName": "NBKRedSpy_TabHotkeys",
+  "Assemblies": [
+    "TabHotkeys.dll"
+  ],
+  "SteamTags": [
+    "0.9.1",
+    "Quality of Life"
+  ]
+}
