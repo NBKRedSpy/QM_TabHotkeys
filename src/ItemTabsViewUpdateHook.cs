@@ -16,7 +16,7 @@ namespace TabHotkeys
         {
             if(Component == null || Component.isActiveAndEnabled == false) return;  
 
-            int index = _keys.FindIndex(x => Input.GetKey(x));
+            int index = _keys.FindIndex(x => InputHelper.GetKey(x));
             if(index == -1) return;
 
             if (index >= Component.TabsCount) return;
@@ -25,11 +25,14 @@ namespace TabHotkeys
 
             //Warning COPY: This is a copy of the same logic in MGSC.ItemTabsView.SelectAndShowFirstTab()
 
-            //I think this is just setting everything but the tab to not selected...
-            foreach (KeyValuePair<int, ItemTab> idsToTab in Component._idsToTabs)
+            //The game requires the selected tab to be enabled last.  Otherwise the tab's content will not 
+            //  be rendered.
+            foreach (KeyValuePair<int, ItemTab> idsToTab in Component._idsToTabs.Where(x => x.Value != tab))
             {
                 idsToTab.Value.Select(idsToTab.Value == tab);
             }
+
+            tab.Select(true);
         }
 
     }
