@@ -16,7 +16,7 @@ namespace TabHotkeys
         {
             if(Component == null || Component.isActiveAndEnabled == false) return;  
 
-            int index = _keys.FindIndex(x => InputHelper.GetKey(x));
+            int index = _keys.FindIndex(x => InputHelper.GetKeyDown(x));
             if(index == -1) return;
 
             if (index >= Component.TabsCount) return;
