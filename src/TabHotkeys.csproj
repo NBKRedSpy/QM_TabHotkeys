@@ -8,9 +8,10 @@
 		<GAME_NAME>Quasimorph</GAME_NAME>
 	</PropertyGroup>
 	<PropertyGroup>
-		 <!--Set the Steam ID SteamId.txt file located in the bootstrap folder.-->
-		<SteamId Condition="Exists('$(ProjectDir)/../../bootstrap/SteamId.txt')">$([System.IO.File]::ReadAllText('$(ProjectDir)/../../bootstrap/SteamId.txt'))</SteamId>
-	</PropertyGroup>
+		<SteamIdFilePath>$(MSBuildProjectDirectory)/../../bootstrap/SteamId.txt</SteamIdFilePath>
+		<SteamId Condition="Exists('$(SteamIdFilePath)')">$([System.IO.File]::ReadAllText('$(SteamIdFilePath)'))</SteamId>
+
+	</PropertyGroup>	
 	<PropertyGroup>
 		<GAME_PATH Condition="!Exists('$(GAME_PATH)')">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App $(GAME_STEAM_ID)', 'InstallLocation', null, RegistryView.Registry64, RegistryView.Registry32))</GAME_PATH>
 		<_SteamLibraryPath>$([MSBuild]::GetRegistryValueFromView('HKEY_CURRENT_USER\SOFTWARE\Valve\Steam', 'SteamPath', null, RegistryView.Registry32))</_SteamLibraryPath>
@@ -29,11 +30,6 @@
 		<WorkshopPath>$(GAME_PATH)\..\..\workshop\content\2059170\$(SteamId)\</WorkshopPath>
 		<ManagedPath>$(GAME_PATH)\$(GAME_NAME)_Data\Managed\</ManagedPath>
 	</PropertyGroup>
-	<ItemGroup>
-	  <Compile Remove="Move To Root\**" />
-	  <EmbeddedResource Remove="Move To Root\**" />
-	  <None Remove="Move To Root\**" />
-	</ItemGroup>
 	<ItemGroup>
 		<Reference Include="Assembly-CSharp" publicize="true">
 			<HintPath>$(Assembly-CSharpPath)</HintPath>
@@ -58,12 +54,15 @@
 
 	<ItemGroup>
 		<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2">
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-			<PrivateAssets>all</PrivateAssets>
+			<ExcludeAssets>runtime;</ExcludeAssets>
 		</PackageReference>
-		<PackageReference Include="Lib.harmony" Version="2.3.3" />
+		<PackageReference Include="Lib.harmony" Version="2.3.3">
+			<ExcludeAssets>runtime;</ExcludeAssets>
+		</PackageReference>
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-		<PackageReference Include="Newtonsoft.json" Version="13.0.3" />
+		<PackageReference Include="Newtonsoft.json" Version="13.0.3" PrivateAssets="false" >
+			<ExcludeAssets>runtime;</ExcludeAssets>
+		</PackageReference>
 		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
 	</ItemGroup>
 
