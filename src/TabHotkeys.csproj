@@ -8,8 +8,8 @@
 		<GAME_NAME>Quasimorph</GAME_NAME>
 	</PropertyGroup>
 	<PropertyGroup>
-		<!-- Set the Steam ID SteamId.txt file located in the bootstrap folder.-->
-		<SteamId Condition="Exists('../SteamId.txtx')">$([System.IO.File]::ReadAllText("../SteamId.txt"))</SteamId>
+		 <!--Set the Steam ID SteamId.txt file located in the bootstrap folder.-->
+		<SteamId Condition="Exists('$(ProjectDir)/../../bootstrap/SteamId.txt')">$([System.IO.File]::ReadAllText('$(ProjectDir)/../../bootstrap/SteamId.txt'))</SteamId>
 	</PropertyGroup>
 	<PropertyGroup>
 		<GAME_PATH Condition="!Exists('$(GAME_PATH)')">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App $(GAME_STEAM_ID)', 'InstallLocation', null, RegistryView.Registry64, RegistryView.Registry32))</GAME_PATH>
@@ -55,9 +55,6 @@
 			<Private>False</Private>
 		</Reference>
 	</ItemGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\..\bootstrap\src\TabHotkeys_Bootstrap.csproj" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2">
@@ -68,6 +65,10 @@
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="Newtonsoft.json" Version="13.0.3" />
 		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\bootstrap\src\TabHotkeys_Bootstrap.csproj" />
 	</ItemGroup>
 	<PropertyGroup>
 	    <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
