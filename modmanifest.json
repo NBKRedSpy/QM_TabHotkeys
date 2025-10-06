@@ -1,0 +1,9 @@
+{
+  "UniqueModName": "NBKRedSpy_TabHotkeys",
+  "Assemblies": [
+    "TabHotkeys_Bootstrap.dll"
+  ],
+  "Dependencies": [],
+  "SteamTags": [
+  ]
+}
