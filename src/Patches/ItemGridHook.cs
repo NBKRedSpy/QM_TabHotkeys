@@ -6,11 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine.EventSystems;
 
-namespace TabHotkeys
+namespace TabHotkeys.Patches
 {
     internal class ItemGridHook : UpdateComponent<ItemGrid>
     {
-
         public static bool IsHovered = false;
 
         public override void Update()

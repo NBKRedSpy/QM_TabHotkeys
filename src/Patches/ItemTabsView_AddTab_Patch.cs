@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace TabHotkeys
+namespace TabHotkeys.Patches
 {
     [HarmonyPatch(typeof(ItemTabsView), nameof(ItemTabsView.AddTab))]
     public static class ItemTabsView_AddTab_Patch

@@ -25,17 +25,14 @@ namespace TabHotkeys
 
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
-            Plugin.Logger.Log($"Pointer entered on: {eventData.pointerCurrentRaycast.gameObject?.name}");
         }
 
         public virtual void OnPointerExit(PointerEventData eventData)
         {
-            Plugin.Logger.Log($"Pointer exited on: {eventData.pointerCurrentRaycast.gameObject?.name}");
         }
 
         public virtual void OnPointerClick(PointerEventData eventData)
         {   
-            Plugin.Logger.Log($"Clicked on: {eventData.pointerCurrentRaycast.gameObject?.name}");   
         }
     }
 }

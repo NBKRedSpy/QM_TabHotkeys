@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using System.IO;
 using System.Reflection;
+using TabHotkeys.Patches;
 using TabHotkeys_Bootstrap;
 using UnityEngine;
 
