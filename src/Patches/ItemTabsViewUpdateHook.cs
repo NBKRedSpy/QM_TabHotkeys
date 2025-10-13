@@ -21,7 +21,7 @@ namespace TabHotkeys.Patches
 
             float mouseWheelDir = Input.GetAxisRaw("Mouse ScrollWheel");
 
-            if (ItemGridHook.IsHovered == false && mouseWheelDir != 0)
+            if ((ItemGridHook.AnyIsHovered == false || ItemGridHook.FitsInView) && mouseWheelDir != 0)
             {
                 int selectedTabIndex = Component._idsToTabs.FirstOrDefault(x => x.Value.IsSelected).Key;
 

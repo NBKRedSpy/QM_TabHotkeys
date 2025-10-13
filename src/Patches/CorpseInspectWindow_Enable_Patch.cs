@@ -17,7 +17,7 @@ namespace TabHotkeys.Patches
         {
             if(__instance.gameObject.GetComponent<ItemGridHook>() == null)
             {
-                __instance.gameObject.AddComponent<ItemGridHook>();
+                (__instance.gameObject.AddComponent<ItemGridHook>()).Component = __instance;
             }
         }
     }
