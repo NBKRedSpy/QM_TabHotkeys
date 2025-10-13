@@ -40,7 +40,7 @@ namespace TabHotkeys
             {
                 int selectedTabIndex = this.Component._idsToTabs.FirstOrDefault(x => x.Value.IsSelected).Key;
 
-                int newIndex = selectedTabIndex + (mouseWheelDir > 0 ? 1 : -1);
+                int newIndex = selectedTabIndex + (mouseWheelDir < 0 ? 1 : -1);
                 this.Component.TrySelectTabByIndex(newIndex);
             }
             else

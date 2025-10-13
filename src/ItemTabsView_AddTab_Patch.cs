@@ -34,7 +34,6 @@ namespace TabHotkeys
 
             UpdateComponent<ItemTabsView> update = __instance.gameObject.AddComponent<ItemTabsViewUpdateHook>();
 
-            UpdateComponent<ItemGrid> itemGrid = __instance.gameObject.GetComponentInChildren<ItemGrid>()?.gameObject.AddComponent<ItemGridHook>();
             update.name = GameObjectName;
             update.Component = __instance;
 

@@ -9,16 +9,15 @@ using System.Threading.Tasks;
 namespace TabHotkeys
 {
 
-    [HarmonyPatch(typeof(CorpseInspectWindow), nameof(CorpseInspectWindow.OnEnable))]   
+    [HarmonyPatch(typeof(ItemGrid), nameof(ItemGrid.Initialize))]   
     internal static class CorpseInspectWindow_Enable_Patch
     {
 
-        public static void Prefix(CorpseInspectWindow __instance)
+        public static void Prefix(ItemGrid __instance)
         {
-
-            if(__instance._itemGrid.gameObject.GetComponent<ItemGridHook>() == null)
+            if(__instance.gameObject.GetComponent<ItemGridHook>() == null)
             {
-                __instance._itemGrid.gameObject.AddComponent<ItemGridHook>();
+                __instance.gameObject.AddComponent<ItemGridHook>();
                 Plugin.Logger.Log("CorpseInspectWindow Attached");
             }
 
