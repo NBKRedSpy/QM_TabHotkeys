@@ -52,6 +52,9 @@
 			<HintPath>$(ManagedPath)UnityEngine.InputLegacyModule.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
+		<Reference Include="UnityEngine.UI">
+		  <HintPath>$(ManagedPath)UnityEngine.UI.dll</HintPath>
+		</Reference>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -62,7 +65,7 @@
 			<ExcludeAssets>runtime;</ExcludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-		<PackageReference Include="Newtonsoft.json" Version="13.0.3" PrivateAssets="false" >
+		<PackageReference Include="Newtonsoft.json" Version="13.0.3" PrivateAssets="false">
 			<ExcludeAssets>runtime;</ExcludeAssets>
 		</PackageReference>
 		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
