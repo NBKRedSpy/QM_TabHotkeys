@@ -15,9 +15,19 @@ namespace TabHotkeys.Patches
 
         public static void Prefix(ItemGrid __instance)
         {
-            if(__instance.gameObject.GetComponent<ItemGridHook>() == null)
+
+            //I'm not sure why this returns null.
+            //if(__instance.gameObject.GetComponent<ItemGridHook>() == null)
+            //{
+            //    (__instance.gameObject.AddComponent<ItemGridHook>()).Component = __instance;
+            //}
+
+            ItemGridHook itemGridHook = (ItemGridHook)__instance.gameObject.GetComponents<object>().FirstOrDefault(x => x is ItemGridHook);
+
+            if (itemGridHook == null)
             {
-                (__instance.gameObject.AddComponent<ItemGridHook>()).Component = __instance;
+                itemGridHook = __instance.gameObject.AddComponent<ItemGridHook>();
+                itemGridHook.Component = __instance;
             }
         }
     }

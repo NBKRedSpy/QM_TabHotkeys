@@ -12,7 +12,7 @@ namespace TabHotkeys.Patches
     internal class ItemGridHook : UpdateComponent<ItemGrid>
     {
         public static bool AnyIsHovered = false;
-        public static bool FitsInView { get; private set; } = true;
+        public bool FitsInView { get; private set; } = true;
 
         public bool IsHovered { get; set; }
 
