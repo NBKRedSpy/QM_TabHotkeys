@@ -14,6 +14,11 @@ namespace TabHotkeys
     {
         public static void Prefix(ItemTabsView __instance)
         {
+
+            //The space screens all have hotkeys.  Hack is to only attach in the dungeon.
+
+            if (DungeonGameMode.Instance == null) return;
+
             //Hack.  Every screen that uses this view will always add a tab first.
             //Use this to attach they key monitor.
 
