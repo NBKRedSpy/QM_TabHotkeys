@@ -29,7 +29,7 @@ namespace TabHotkeys
             //Do not use hotkeys on the inventory screen during loadout.  
             //Due to there possibly being a shuttle tab.  Otherwise pressing the 2 key would
             //the tabs on both sides change.
-            if (__instance._tabsRoot.parent.name == "InventoryWindow") return;
+            if (__instance._rightTabsRoot.parent.name == "InventoryWindow") return;
 
 
             UpdateComponent<ItemTabsView> update = __instance.gameObject.AddComponent<ItemTabsViewUpdateHook>();
