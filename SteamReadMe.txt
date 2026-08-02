@@ -43,7 +43,7 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_TabHotkeys
 
 [h1]Change Log[/h1]
 
-[h2]1.0.3[/h2]
+[h2]1.1.1[/h2]
 [list]
-[*]Removed unnecessary files.
+[*]0.9.9 compatibility.
 [/list]
