@@ -1,7 +1,7 @@
 [h1]Quasimorph Tab Hotkeys[/h1]
 
 
-Adds hotkeys to the tabs on inventory screens.
+Not all of the game's screens which have a list of tabs have numeric hotkeys.  This adds hotkeys to the remaining screens.
 By default maps to number keys, but can be configured.
 
 [h1]Configuration[/h1]
